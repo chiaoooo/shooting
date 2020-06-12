@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
-
-
-
 public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
@@ -15,12 +13,12 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float tilt;
     public Boundary boundary;
-    private Rigidbody rBody;
 
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
 
+    private Rigidbody rBody;
     private float nextFire;
 
     void Start()
@@ -36,6 +34,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
     }
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
